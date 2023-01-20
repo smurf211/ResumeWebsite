@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+
+<html>
+<!--SVG-Position cant click anything because of canvas-->
+<head>
+	<link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="css/styles-tutorials.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+
+	<title>Responsive Design</title>
+
+	</head>
+
+	<body style="background-color:#1D1D1D; cursor:auto;">
+
+         <div class="dropdown neumorphic-shadows neumorphic-shadows-hover" style="position:absolute; box-sizing:content-box;">
+                  <button class="dropbtn">
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content neumorphic-shadows-purple">
+                      <a href="index.html">Home</a>
+                      <a href="projects.html">Projects</a>
+                        <a href="boxstyles.html">Resume</a>
+                      <a href="contactme.html">Contact</a>
+                  <a href="about.html">About</a>
+                  <a href="https://github.com/smurf211" target="_blank">Github</a>
+                  <a href="https://www.linkedin.com/in/michael-spadaro-12017a1b9/" target="_blank">LinkedIn</a>
+                   
+                  
+                  </div>
+            </div> <!--/dropdown-->
+
+
+      <div id="sidenav" style="margin-bottom:50%" class="neumorphic-shadows neumorphic-shadows-hover">
+
+        <a href="index.html" style="margin:0px; padding:0px;"><div id ="logo" class="neumorphic-shadows neumorphic-shadows-purple-hover">
+        <img src="images/Logo.png"  alt="MJS Tech Logo">
+        <div style="text-align:center;"> MJS Tech</div>
+
+        </div><!--/logo-->
+      </a>
+                  <a class="side-links" href="index.html">Home</a>
+                <a class="side-links" href="projects.html">Projects</a>
+                <a class="side-links" href="Michael J Spadaro Resume.docx">Resume</a>
+                <a class="side-links" href="contactme.html">Contact</a>
+                <a class="side-links" href="about.html">About</a>
+                 
+
+
+    <a href="https://github.com/smurf211" target="_blank" style="margin:0px; padding-top:40px; padding-right:10px;"><img src="images/github.svg" alt="github" class="svg" style="margin:0; padding:0; margin-top:40px"></a>
+     <a href="mailto:mikejspadaro@gmail.com" style="margin:0px; padding-right:10px;"><img src="images/minutemailer.svg" alt="email" class="svg" style="margin:0; padding:0; margin-top:40px"></a>
+    <a class="svg-a"href="https://www.linkedin.com/in/michael-spadaro-12017a1b9/" target="_blank" style="margin:0px; padding:0px;"> <img src="images/linkedin.svg" alt="linkedin" class="svg" style="margin:0; padding:0; margin-top:40px"></a>
+
+            </div>
+
+	
+
+          
+
+
+           <div id="content" style="padding-top:10%; padding-bottom:10%">
+    <div id ="intro-tile">
+          
+
+               <h1 class="header-h1 header-h1-mobile" style=" padding-left:0px"> Responsive Design using Media Queries
+        </h1>
+        <p>
+          You never know what screen size your page may be viewed on. Smartphones, tablets, PC's, Smart TV's, Smart watches. Your page has to show its content properly on all of them! Media queries help with this, they allow for the CSS styling of your page to change based on the width and height of the screen it is being view on. As seen below, the columns show three in a row if the browser size is large enough. If you resize the browser, watch how the columns now show vertically.
+
+
+                      
+        </p>
+
+        <div class="responsive1">
+
+        </div>
+
+        <div class="responsive2">
+        </div>
+
+        <div class="responsive3">
+        </div>
+
+
+
+          </div>
+
+      
+          <div id="Tutorial1" class = "tile2" style="margin-bottom:0px">
+      <h2> Tutorial: Percentages and Media Queries
+        </h2>
+        <a href="codeeditor.html" target ="_blank" style="padding-left:0px;
+  display:block; text-align:center; padding-bottom:20px"> Open the code editor here</a>
+        <p>
+          <b> We will be creating three cubes that grow and shrink based on the size of the page, and will re-orient themselves when the page shrinks using media queries. The cubes will grow and maintain aspect ratio through percentages on width and padding. </b><br><br>
+        <b class="steps">Step 1:</b> Build your basic HTML structure as outlined above. Or use the generated structure the code editor offers by clicking the link above.<br><br>
+
+        <b class="steps">Step 2:</b> Let's create three divs which will represent our cubes. Give them a class attribute of responsive1, responsive2, responsive3. <br><br>
+        <img class="tutorial-img"style="margin-left:0px;"   src="images/responsive1.jpg" >
+
+        <b class="steps">Step 3:</b> Now let's add our css. We will start with the styles for the responsive1, 2, and 3 which will display them in a row on the page.<br><br>
+        <img class="tutorial-img"style="margin-left:0px;"   src="images/responsive2.jpg" >
+        
+        <br><br>
+
+        
+
+
+                     
+                              </p>
+
+                                  <figure class="figure" >
+
+                              <img  class="figure-img img-fluid rounded" src= "images/responsivemain.jpg">
+                               <figcaption class="figure-caption" style="text-align:center;">What your HTML file should look like. Note the @media CSS declaration.</figcaption>
+                            </figure>
+
+
+                              
+
+      </div>
+
+
+        <div class = "tile3" style="padding-top:100px; margin-top:0px" >
+          
+          
+  
+        <p>
+        <b class="steps">Step 4:</b> We now have three bars that grow and shrink with the page. The cube grows because its width is set to a percentage of the page width, this is an advantage over using a typical pixel based approach. By setting the padding-top to 20%, we maintain the same aspect ratio in height as we do in width. However, when the page shrinks too much, we get some funky behavior: <br><br>
+        <img class="tutorial-img"style="margin-right:50px; padding-bottom:20px"   src="images/funky.jpg" ><br><br><br><br>
+
+        <b class="steps">Step 5:</b> Now we will add our media query. This will change the CSS of our page at a page width in pixels that we desire. To view the page width in chrome press F12, as you shrink the page you will see the pixel counts. So this query will set the floats to none and center the cubes using the margin setting <i>"20px auto".</i><br><br>
+        <img class="tutorial-img" style="margin-right:50px; padding-bottom:20px" src="images/mediaquery.jpg" >
+        <br><br>
+
+        <b class="steps">Done!</b> Now our cubes will display vertically when the page is under 800 pixels. 
+
+
+                     
+                              </p>
+
+                                  <figure class="figure" >
+
+                              <img  class="figure-img img-fluid rounded" src= "images/notfunky.jpg">
+                               <figcaption class="figure-caption" style="text-align:center;">The correct output when under 800px.</figcaption>
+                            </figure>
+                            
+
+                              
+
+                              
+
+
+      </div>
+
+
+
+            </div><!--/content-->
+
+
+
+
+<footer id="footer-front" class="neumorphic-shadows">
+
+<h1>
+  Let's Work Together
+</h1>
+  <button class="button2 neumorphic-shadows neumorphic-shadows-hover" style="margin-top:10px;" onclick="location.href='contact.html';">
+                  Contact Me
+                </button>
+
+<div class="footer-links">
+       <a href="https://github.com/smurf211" target="_blank" ><img src="images/github.svg" alt="github" class="svg" style="margin:0; padding:0; margin-top:40px; margin-right:100px;"></a>
+     <a href="mailto:mikejspadaro@gmail.com" ><img src="images/minutemailer.svg" alt="email" class="svg" style="margin:0; padding:0; margin-top:20px; margin-right:100px;"></a>
+    <a href="https://www.linkedin.com/in/michael-spadaro-12017a1b9/" target="_blank" > <img src="images/linkedin.svg" alt="linkedin" class="svg" style="margin:0; padding:0; margin-top:20px; margin-right:100px;"></a>
+
+</div>
+
+
+      <div>
+        <img src="images/Logo.png"  alt="MJS Tech Logo">
+      </div>
+               <div>
+        MJS Tech 2021&trade;
+      </div>
+
+
+
+
+</footer>
+
+              
+
+
+
+
+
+
+		
+		<script src="js/tagcanvas.js" type="text/javascript" id="tagcanvas"></script>
+     <script src="js/backgroundcanvas.js" type="text/javascript" id="nokey"></script>
+
+	</body>
+
+</html>

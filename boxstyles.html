@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+
+<html>
+<!--SVG-Position cant click anything because of canvas-->
+<head>
+	<link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="css/styles-tutorials.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+
+	<title>Box Styles</title>
+
+	</head>
+
+	<body style="background-color:#1D1D1D; cursor:auto;">
+
+         <div class="dropdown neumorphic-shadows neumorphic-shadows-hover" style="position:absolute; box-sizing:content-box;">
+                  <button class="dropbtn">
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content neumorphic-shadows-purple">
+                      <a href="index.html">Home</a>
+                      <a href="projects.html">Projects</a>
+                        <a href="boxstyles.html">Resume</a>
+                      <a href="contactme.html">Contact</a>
+                  <a href="about.html">About</a>
+                  <a href="https://github.com/smurf211" target="_blank">Github</a>
+                  <a href="https://www.linkedin.com/in/michael-spadaro-12017a1b9/" target="_blank">LinkedIn</a>
+                  
+                  
+                  </div>
+            </div> <!--/dropdown-->
+
+
+      <div id="sidenav" style="margin-bottom:50%" class="neumorphic-shadows neumorphic-shadows-hover">
+
+        <a href="index.html" style="margin:0px; padding:0px;"><div id ="logo" class="neumorphic-shadows neumorphic-shadows-purple-hover">
+        <img src="images/Logo.png"  alt="MJS Tech Logo">
+        <div style="text-align:center;"> MJS Tech</div>
+
+        </div><!--/logo-->
+      </a>
+                  <a class="side-links" href="index.html">Home</a>
+                <a class="side-links" href="projects.html">Projects</a>
+                <a class="side-links" href="Michael J Spadaro Resume.docx">Resume</a>
+                <a class="side-links" href="contactme.html">Contact</a>
+                <a class="side-links" href="about.html">About</a>
+                 
+
+
+    <a href="https://github.com/smurf211" target="_blank" style="margin:0px; padding-top:40px; padding-right:10px;"><img src="images/github.svg" alt="github" class="svg" style="margin:0; padding:0; margin-top:40px"></a>
+     <a href="mailto:mikejspadaro@gmail.com" style="margin:0px; padding-right:10px;"><img src="images/minutemailer.svg" alt="email" class="svg" style="margin:0; padding:0; margin-top:40px"></a>
+    <a class="svg-a"href="https://www.linkedin.com/in/michael-spadaro-12017a1b9/" target="_blank" style="margin:0px; padding:0px;"> <img src="images/linkedin.svg" alt="linkedin" class="svg" style="margin:0; padding:0; margin-top:40px"></a>
+
+            </div>
+
+	
+
+          
+
+
+           <div id="content" style="padding-top:10%; padding-bottom:10%">
+      <div id ="intro-tile">
+             <h1 class="header-h1 header-h1-mobile" style=" padding-left:0px">
+              Box Styles, or using CSS to create a page layout
+            </h1>
+            <p>
+              Figuring out the dimensions of each component on an HTML page can be difficult. Margins, padding, floats, widths, heights, there's a lot to consider. 
+
+              In the tutorial below we provide a simple process which will get the basic layout of any HTML page off the ground.
+
+
+                      
+            </p>
+
+            <img src= "images/css-hw.png">
+
+          </div>
+
+          <div id="Tutorial1" class = "tile2" style="margin-bottom:0px">
+      <h2> Creating Your Page Layout
+        </h2>
+        <a href="codeeditor.html" target ="_blank" style="padding-left:0px;
+  display:block; text-align:center; padding-bottom:20px"> Open the code editor here</a>
+        <p>
+        <b class="steps">Step 1:</b> Build your basic HTML structure as outlined above. Or use the generated structure the code editor offers by clicking the link above.<br><br>
+
+        <b class="steps">Step 2:</b> The page layout shown in the image is based on the outline above. It features all of the typical sections a home page would have. Logo, navbar, header, your main content area, a headline box, and columns below. This tutorial will not be responsive, but will show the basic use of floats, margins, and padding and how they create a page structure such as this.<br><br>
+
+        <b class="steps">Step 3:</b> Copy the page structure shown in the image. The entire page is contained without a div named "container". Take note of the fact that the header tags contain the logo and nav divs. The main div also contains the headline div. This is where floats come into play. <br><br>
+        
+              <b class="steps">Step 4:</b> First we will start with the container, header and the elements contained within it. We are using an external CSS file, if you are not familiar with this, check out the tutorial <a href="cssbasics.html" style="display:inline; padding-left:0">here</a>.<br><br> Create the selector for the container: <br><br>
+              <img class="tutorial-img" style="margin-left:0px; margin-right:80%; min-width:60%; min-height:60%;" src="images/container.jpg" >   
+
+              <b class="steps">Step 5:</b> Create the selectors for the header, logo, and nav:  <br><br>
+              <img class="tutorial-img" style="margin-left:0px; margin-right:100px;min-width:70%; min-height:70%;" src="images/header.jpg" > <img class="tutorial-img" style=" margin-left:0px; margin-right:100px;min-width:70%; min-height:70%;" src="images/logo.jpg" > <img class="tutorial-img" style=" margin-left:0px; margin-right:100px;min-width:70%; min-height:70%;" src="images/nav.jpg" >   <br><br>
+
+                     
+                              </p>
+
+                                  <figure class="figure" >
+
+                              <img  class="figure-img img-fluid rounded" src= "images/boxstylesimg1.jpg">
+                               <figcaption class="figure-caption" style="color: white; text-align:center;">What your HTML structure should look like.</figcaption>
+                            </figure>
+
+
+                              
+
+      </div>
+
+        <div class = "tile3" style="padding-top:40px; margin-top:0;" >
+          
+    
+        <p>
+        <b class="steps">Step 6:</b> Next we will create the main and headline selectors. Note that main has a float: left, and headline has a float: right. This keeps each piece in its corresponding position on the left and right. By adjusting the margins we are able to align them as seen in the outline. <br><br>
+         <img class="tutorial-img" style="margin-left:0px;margin-right:100px; min-width:70%; min-height:70%;" alt="main and headline" src="images/main.jpg" > <img class="tutorial-img" style=" margin-left:0px;margin-right:100px; min-width:70%; min-height:70%;" src="images/headline.jpg" >   
+
+        <b class="steps">Step 7:</b> Next we need to create the columns: Notice each of them float left, this is because it allows us to keep them aligned in the same row. The margins are what is creating the space between them. <br><br>
+        <img class="tutorial-img" style="margin-left:0px;margin-right:100px;  min-width:70%; min-height:70%;" src="images/columns.jpg" >
+
+        <b class="steps">Step 8:</b> Let's do some box model math, if the container width is 1122px, and each column is 369px wide, that leaves us with 15px for spacing between the columns. So by giving column1 and column2 a margin-right of 7.5px, we use up our space effectively.  <br><br>
+        
+
+        <b class="steps">Done!</b> With that you have just created a page layout template that can be used to create a website.
+
+
+                     
+                              </p>
+
+                                  <figure class="figure" >
+
+                              <img  class="figure-img img-fluid rounded" src= "images/boxstylesfinalimg.jpg">
+                               <figcaption class="figure-caption" style="text-align:center;">What your CSS structure should look like.</figcaption>
+                            </figure>
+                            
+
+                              
+
+                              
+
+
+      </div>
+
+
+
+            </div><!--/content-->
+
+
+
+
+<footer id="footer-front" class="neumorphic-shadows">
+
+<h1>
+  Let's Work Together
+</h1>
+  <button class="button2 neumorphic-shadows neumorphic-shadows-hover" style="margin-top:10px;" onclick="location.href='contact.html';">
+                  Contact Me
+                </button>
+
+<div class="footer-links">
+       <a href="https://github.com/smurf211" target="_blank" ><img src="images/github.svg" alt="github" class="svg" style="margin:0; padding:0; margin-top:40px; margin-right:100px;"></a>
+     <a href="mailto:mikejspadaro@gmail.com" ><img src="images/minutemailer.svg" alt="email" class="svg" style="margin:0; padding:0; margin-top:20px; margin-right:100px;"></a>
+    <a href="https://www.linkedin.com/in/michael-spadaro-12017a1b9/" target="_blank" > <img src="images/linkedin.svg" alt="linkedin" class="svg" style="margin:0; padding:0; margin-top:20px; margin-right:100px;"></a>
+
+</div>
+
+
+      <div>
+        <img style="padding-top:0px;" src="images/Logo.png"  alt="MJS Tech Logo">
+      </div>
+               <div>
+        MJS Tech 2021&trade;
+      </div>
+
+
+
+
+</footer>
+
+              
+
+
+
+
+
+
+		
+		<script src="js/tagcanvas.js" type="text/javascript" id="tagcanvas"></script>
+     <script src="js/backgroundcanvas.js" type="text/javascript" id="nokey"></script>
+
+	</body>
+
+</html>

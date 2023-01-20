@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<link rel="stylesheet" href="../css/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<title>Some Title Here</title>
+
+	</head>
+
+	<body style="background-color:black;">
+
+		<canvas id="nokey" width="800" height="800">
+    Your Browser Don't Support Canvas, Please Download Chrome ^_^``
+</canvas>
+				<div style = "width: 50px; height:50px; background-color:green">
+</div>
+
+
+<div id="myCanvasContainer">
+                    <canvas width="500" height="500" id="myCanvas">
+                        <ul>
+                            <li>
+                                <a data-weight="25" href="https://en.wikipedia.org/wiki/HTML" target="_blank">HTML</a>
+                            </li>
+                            <li><a data-weight="25" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS</a></li>
+                            <li><a data-weight="25" href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">ES5/ES6</a></li>
+                            <li><a data-weight="25" href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">TypeScript</a></li>
+                            <li><a data-weight="24" href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a></li>
+                            <li><a data-weight="14" href="https://en.wikipedia.org/wiki/JSON" target="_blank">JSON</a></li>
+                            <li><a data-weight="13" href="https://en.wikipedia.org/wiki/XML" target="_blank">GSAP</a></li>
+                            <li><a data-weight="14" href="https://en.wikipedia.org/wiki/AngularJS" target="_blank">Angular</a></li>
+                            <li><a data-weight="26" href="https://en.wikipedia.org/wiki/WordPress" target="_blank">Wordpress</a></li>
+                            <li><a data-weight="26" href="https://en.wikipedia.org/wiki/Shopify" target="_blank">Shopify</a></li>
+
+                            <li><a data-weight="21" href="https://en.wikipedia.org/wiki/Node.js" target="_blank">Node JS</a></li>
+                            <li><a data-weight="17" href="https://en.wikipedia.org/wiki/Git" target="_blank">Git</a></li>
+                            <li><a data-weight="17" href="" target="_blank">_lodash</a></li>
+                            <li><a data-weight="23" href="https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)" target="_blank">Bootstrap</a></li>
+                            <li><a data-weight="15" href="https://en.wikipedia.org/wiki/Sass_(stylesheet_language)" target="_blank">SASS</a></li>
+                            <li><a data-weight="24" href="https://reactjs.org/" target="_blank">ReactJS</a></li>
+                            <li><a data-weight="12" href="https://en.wikipedia.org/wiki/JQuery" target="_blank">jQuery</a></li>
+                            <li><a data-weight="19" href="http://mongoosejs.com/" target="_blank">SQl</a></li>
+                            <li><a data-weight="19" href="http://gulpjs.com/" target="_blank">Gulp</a></li>
+                            <li><a data-weight="19" href="https://www.npmjs.com/" target="_blank">npm</a></li>
+                            <li><a data-weight="19" href="https://en.wikipedia.org/wiki/BEM" target="_blank">BEM</a></li>
+
+                        </ul>
+                    </canvas>
+                </div>
+
+
+
+                <div class= "skills">
+                	<h1>My Skills</h1>
+                	<li>
+                		<h3>Front-end</h3><span class="bar"><span class = "html"></span></span>
+                	</li>
+
+                	<li>
+                		<h3>Back-end</h3><span class="bar"><span class = "css"></span></span>
+                	</li>
+
+                	<li>
+                		<h3>Architecture & Design</h3><span class="bar"><span class = "jquery"></span></span>
+                	</li>
+
+                	<li>
+                		<h3>Database</h3><span class="bar"><span class = "javascript"></span></span>
+                	</li>
+                </div>
+
+
+<script type="text/javascript">
+ $(document).ready(function() {
+   if( ! $('#myCanvas').tagcanvas({
+     textColour : '#BE00FE',
+     outlineThickness : 0.1,
+     maxSpeed : 0.07,
+     depth : 0.75,
+     outlineColour : '#000000'
+   })) {
+     // TagCanvas failed to load
+     $('#myCanvasContainer').hide();
+   }
+   // your other jQuery stuff here...
+ });
+</script>
+
+<script>
+// dots is an array of Dot objects,
+// mouse is an object used to track the X and Y position
+   // of the mouse, set with a mousemove event listener below
+var dots = [],
+    mouse = {
+      x: 0,
+      y: 0
+    };
+
+// The Dot object used to scaffold the dots
+var Dot = function() {
+  this.x = 0;
+  this.y = 0;
+  this.node = (function(){
+    var n = document.createElement("div");
+    n.className = "trail";
+    document.body.appendChild(n);
+    return n;
+  }());
+};
+// The Dot.prototype.draw() method sets the position of 
+  // the object's <div> node
+Dot.prototype.draw = function() {
+  this.node.style.left = this.x + "px";
+  this.node.style.top = this.y + "px";
+};
+
+// Creates the Dot objects, populates the dots array
+for (var i = 0; i < 12; i++) {
+  var d = new Dot();
+  dots.push(d);
+}
+
+// This is the screen redraw function
+function draw() {
+  // Make sure the mouse position is set everytime
+    // draw() is called.
+  var x = mouse.x,
+      y = mouse.y;
+  
+  // This loop is where all the 90s magic happens
+  dots.forEach(function(dot, index, dots) {
+    var nextDot = dots[index + 1] || dots[0];
+    
+    dot.x = x;
+    dot.y = y;
+    dot.draw();
+    x += (nextDot.x - dot.x) * .6;
+    y += (nextDot.y - dot.y) * .6;
+
+  });
+}
+
+addEventListener("mousemove", function(event) {
+  //event.preventDefault();
+  mouse.x = event.pageX;
+  mouse.y = event.pageY;
+});
+
+// animate() calls draw() then recursively calls itself
+  // everytime the screen repaints via requestAnimationFrame().
+function animate() {
+  draw();
+  requestAnimationFrame(animate);
+}
+
+// And get it started by calling animate().
+animate();
+
+</script>
+
+<script>
+	var canvas = document.getElementById('nokey'),
+   can_w = parseInt(canvas.getAttribute('width')),
+   can_h = parseInt(canvas.getAttribute('height')),
+   ctx = canvas.getContext('2d');
+
+// console.log(typeof can_w);
+
+var ball = {
+      x: 0,
+      y: 0,
+      vx: 0,
+      vy: 0,
+      r: 0,
+      alpha: 1,
+      phase: 0
+   },
+   ball_color = {
+       r: 207,
+       g: 255,
+       b: 4
+   },
+   R = 2,
+   balls = [],
+   alpha_f = 0.03,
+   alpha_phase = 0,
+    
+// Line
+   link_line_width = 0.8,
+   dis_limit = 260,
+   add_mouse_point = true,
+   mouse_in = false,
+   mouse_ball = {
+      x: 0,
+      y: 0,
+      vx: 0,
+      vy: 0,
+      r: 0,
+      type: 'mouse'
+   };
+
+// Random speed
+function getRandomSpeed(pos){
+    var  min = -1,
+       max = 1;
+    switch(pos){
+        case 'top':
+            return [randomNumFrom(min, max), randomNumFrom(0.1, max)];
+            break;
+        case 'right':
+            return [randomNumFrom(min, -0.1), randomNumFrom(min, max)];
+            break;
+        case 'bottom':
+            return [randomNumFrom(min, max), randomNumFrom(min, -0.1)];
+            break;
+        case 'left':
+            return [randomNumFrom(0.1, max), randomNumFrom(min, max)];
+            break;
+        default:
+            return;
+            break;
+    }
+}
+function randomArrayItem(arr){
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+function randomNumFrom(min, max){
+    return Math.random()*(max - min) + min;
+}
+console.log(randomNumFrom(0, 10));
+// Random Ball
+function getRandomBall(){
+    var pos = randomArrayItem(['top', 'right', 'bottom', 'left']);
+    switch(pos){
+        case 'top':
+            return {
+                x: randomSidePos(can_w),
+                y: -R,
+                vx: getRandomSpeed('top')[0],
+                vy: getRandomSpeed('top')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+        case 'right':
+            return {
+                x: can_w + R,
+                y: randomSidePos(can_h),
+                vx: getRandomSpeed('right')[0],
+                vy: getRandomSpeed('right')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+        case 'bottom':
+            return {
+                x: randomSidePos(can_w),
+                y: can_h + R,
+                vx: getRandomSpeed('bottom')[0],
+                vy: getRandomSpeed('bottom')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+        case 'left':
+            return {
+                x: -R,
+                y: randomSidePos(can_h),
+                vx: getRandomSpeed('left')[0],
+                vy: getRandomSpeed('left')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+    }
+}
+function randomSidePos(length){
+    return Math.ceil(Math.random() * length);
+}
+
+// Draw Ball
+function renderBalls(){
+    Array.prototype.forEach.call(balls, function(b){
+       if(!b.hasOwnProperty('type')){
+           ctx.fillStyle = 'rgba('+ball_color.r+','+ball_color.g+','+ball_color.b+','+b.alpha+')';
+           ctx.beginPath();
+           ctx.arc(b.x, b.y, R, 0, Math.PI*2, true);
+           ctx.closePath();
+           ctx.fill();
+       }
+    });
+}
+
+// Update balls
+function updateBalls(){
+    var new_balls = [];
+    Array.prototype.forEach.call(balls, function(b){
+        b.x += b.vx;
+        b.y += b.vy;
+        
+        if(b.x > -(50) && b.x < (can_w+50) && b.y > -(50) && b.y < (can_h+50)){
+           new_balls.push(b);
+        }
+        
+        // alpha change
+        b.phase += alpha_f;
+        b.alpha = Math.abs(Math.cos(b.phase));
+        // console.log(b.alpha);
+    });
+    
+    balls = new_balls.slice(0);
+}
+
+// loop alpha
+function loopAlphaInf(){
+    
+}
+
+// Draw lines
+function renderLines(){
+    var fraction, alpha;
+    for (var i = 0; i < balls.length; i++) {
+        for (var j = i + 1; j < balls.length; j++) {
+           
+           fraction = getDisOf(balls[i], balls[j]) / dis_limit;
+            
+           if(fraction < 1){
+               alpha = (1 - fraction).toString();
+
+               ctx.strokeStyle = 'rgba(150,150,150,'+alpha+')';
+               ctx.lineWidth = link_line_width;
+               
+               ctx.beginPath();
+               ctx.moveTo(balls[i].x, balls[i].y);
+               ctx.lineTo(balls[j].x, balls[j].y);
+               ctx.stroke();
+               ctx.closePath();
+           }
+        }
+    }
+}
+
+// calculate distance between two points
+function getDisOf(b1, b2){
+    var  delta_x = Math.abs(b1.x - b2.x),
+       delta_y = Math.abs(b1.y - b2.y);
+    
+    return Math.sqrt(delta_x*delta_x + delta_y*delta_y);
+}
+
+// add balls if there a little balls
+function addBallIfy(){
+    if(balls.length < 20){
+        balls.push(getRandomBall());
+    }
+}
+
+// Render
+function render(){
+    ctx.clearRect(0, 0, can_w, can_h);
+    
+    renderBalls();
+    
+    renderLines();
+    
+    updateBalls();
+    
+    addBallIfy();
+    
+    window.requestAnimationFrame(render);
+}
+
+// Init Balls
+function initBalls(num){
+    for(var i = 1; i <= num; i++){
+        balls.push({
+            x: randomSidePos(can_w),
+            y: randomSidePos(can_h),
+            vx: getRandomSpeed('top')[0],
+            vy: getRandomSpeed('top')[1],
+            r: R,
+            alpha: 1,
+            phase: randomNumFrom(0, 10)
+        });
+    }
+}
+// Init Canvas
+function initCanvas(){
+    canvas.setAttribute('width', window.innerWidth);
+    canvas.setAttribute('height', window.innerHeight);
+    
+    can_w = parseInt(canvas.getAttribute('width'));
+    can_h = parseInt(canvas.getAttribute('height'));
+}
+window.addEventListener('resize', function(e){
+    console.log('Window Resize...');
+    initCanvas();
+});
+
+function goMovie(){
+    initCanvas();
+    initBalls(30);
+    window.requestAnimationFrame(render);
+}
+goMovie();
+
+// Mouse effect
+canvas.addEventListener('mouseenter', function(){
+    console.log('mouseenter');
+    mouse_in = true;
+    balls.push(mouse_ball);
+});
+canvas.addEventListener('mouseleave', function(){
+    console.log('mouseleave');
+    mouse_in = false;
+    var new_balls = [];
+    Array.prototype.forEach.call(balls, function(b){
+        if(!b.hasOwnProperty('type')){
+            new_balls.push(b);
+        }
+    });
+    balls = new_balls.slice(0);
+});
+canvas.addEventListener('mousemove', function(e){
+    var e = e || window.event;
+    mouse_ball.x = e.pageX;
+    mouse_ball.y = e.pageY;
+    // console.log(mouse_ball);
+});
+	</script>
+
+		
+		<script src="../js/tagcanvas.js" type="text/javascript" id="tagcanvas"></script>
+
+	</body>
+
+</html>
